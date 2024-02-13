@@ -1,18 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-  // Uppercase function - use in view
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
 export default function ExerciseListItem({ item }) {
     return (
         <View style={styles.exerciseContainer}>
           <Text style={styles.exerciseName}>{item.name}</Text>
           <Text style={styles.exerciseSubtitle}>
-            {capitalizeFirstLetter(item.muscle)} | {capitalizeFirstLetter(item.equipment)} </Text>
+            <Text style={styles.subValue}>{item.muscle} </Text>| {''} 
+            <Text style={styles.subValue}>{item.equipment} </Text>
+            </Text>
         </View>
-    )
+    );
   }
 
   const styles = StyleSheet.create({
@@ -29,4 +26,7 @@ export default function ExerciseListItem({ item }) {
     exerciseSubtitle: {
       color: 'dimgray'
     },
+    subValue: {
+        textTransform: 'capitalize'
+    }
   });
